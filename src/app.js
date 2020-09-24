@@ -29,6 +29,7 @@ const fetchAllData = async () => {
   // CITY WEATHER DETAILS
   const detailsResponse = await axios.get(`https://se-weather-api.herokuapp.com/api/v1/forecast?latitude=${lat}&longitude=${long}&date=${month}/${day}/${year}`)
   const initialDays = detailsResponse.data.daily.data.filter( (data, idx) => idx < 3)
+
 }
 
 fetchAllData()
