@@ -8,7 +8,9 @@
     "build": "parcel build index.html",
     "pack": "npm run pack"
   },
-  "dependencies": {},
+  "dependencies": {
+    "axios": "^0.20.0"
+  },
   "devDependencies": {
     "@babel/core": "7.11.1",
     "@babel/preset-env": "7.11.0",
