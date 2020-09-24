@@ -49,35 +49,36 @@ const fetchAllData = async () => {
 
   weekdays.map( (weekday, idx) => {
     if (idx === currDate.getDay() - 1) {
-      subTitle[0].innerText = 'Today'
+      subTitle[0].innerText = 'Today:'
     }
     if (idx === currDate.getDay()) {
-      subTitle[1].innerText = weekday
+      subTitle[1].innerText = `${weekday}:`
     }
     if (idx === currDate.getDay() + 1) {
-      subTitle[2].innerText = weekday
+      subTitle[2].innerText = `${weekday}:`
     }
   })
 
   initialDays.map( (day, idx) => {
     if (day.icon === 'cloudy') {
       iconImg[idx].src = cloudy
-      weatherDescription[idx].innerText = day.icon
-      weatherTemp[idx].innerText = `${day.temperatureHigh.toFixed(0)}°/${day.temperatureLow.toFixed(0)}° F`
+      weatherDescription[idx].innerText = `${day.icon.slice(0, 1).toUpperCase()}${day.icon.slice(1)}`
+
+      weatherTemp[idx].innerText = `${day.temperatureHigh.toFixed(0)}°/ ${day.temperatureLow.toFixed(0)}° F`
     } else if (day.icon === 'rain') {
       iconImg[idx].src = rain
-      weatherDescription[idx].innerText = day.icon
-      weatherTemp[idx].innerText = `${day.temperatureHigh.toFixed(0)}°/${day.temperatureLow.toFixed(0)}° F`
+      weatherDescription[idx].innerText = `${day.icon.slice(0, 1).toUpperCase()}${day.icon.slice(1)}`
+      weatherTemp[idx].innerText = `${day.temperatureHigh.toFixed(0)}°/ ${day.temperatureLow.toFixed(0)}° F`
     } else if (day.icon === 'sunny') {
       iconImg[idx].src = sunny
-      weatherDescription[idx].innerText = day.icon
+      weatherDescription[idx].innerText = `${day.icon.slice(0, 1).toUpperCase()}${day.icon.slice(1)}`
       weatherTemp[idx].innerText = `${day.temperatureHigh.toFixed(
         0
-      )}°/${day.temperatureLow.toFixed(0)}° F`
+      )}°/ ${day.temperatureLow.toFixed(0)}° F`
     } else {
       iconImg[idx].src = snow
-      weatherDescription[idx].innerText = day.icon
-      weatherTemp[idx].innerText = `${day.temperatureHigh.toFixed(0)}°/${day.temperatureLow.toFixed(0)}° F`
+      weatherDescription[idx].innerText = `${day.icon.slice(0, 1).toUpperCase()}${day.icon.slice(1)}`
+      weatherTemp[idx].innerText = `${day.temperatureHigh.toFixed(0)}°/ ${day.temperatureLow.toFixed(0)}° F`
     }
   })
 }
