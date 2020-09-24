@@ -62,12 +62,22 @@ const fetchAllData = async () => {
   initialDays.map( (day, idx) => {
     if (day.icon === 'cloudy') {
       iconImg[idx].src = cloudy
+      weatherDescription[idx].innerText = day.icon
+      weatherTemp[idx].innerText = `${day.temperatureHigh.toFixed(0)}°/${day.temperatureLow.toFixed(0)}° F`
     } else if (day.icon === 'rain') {
       iconImg[idx].src = rain
+      weatherDescription[idx].innerText = day.icon
+      weatherTemp[idx].innerText = `${day.temperatureHigh.toFixed(0)}°/${day.temperatureLow.toFixed(0)}° F`
     } else if (day.icon === 'sunny') {
       iconImg[idx].src = sunny
+      weatherDescription[idx].innerText = day.icon
+      weatherTemp[idx].innerText = `${day.temperatureHigh.toFixed(
+        0
+      )}°/${day.temperatureLow.toFixed(0)}° F`
     } else {
       iconImg[idx].src = snow
+      weatherDescription[idx].innerText = day.icon
+      weatherTemp[idx].innerText = `${day.temperatureHigh.toFixed(0)}°/${day.temperatureLow.toFixed(0)}° F`
     }
   })
 }
