@@ -17,7 +17,7 @@ const fetchAllData = async () => {
   let long = 0
 
   // CITY DATA
-  const stateZipcode = 20001;
+  const stateZipcode = 20001
   const response = await axios.get(
     `https://se-weather-api.herokuapp.com/api/v1/geo?zip_code=${stateZipcode}`
   )
@@ -25,6 +25,10 @@ const fetchAllData = async () => {
   lat = Number(response.data.latitude).toFixed(2)
   long = Number(response.data.longitude).toFixed(1)
 
+
+  // CITY WEATHER DETAILS
+  const detailsResponse = await axios.get(`https://se-weather-api.herokuapp.com/api/v1/forecast?latitude=${lat}&longitude=${long}&date=${month}/${day}/${year}`)
+  const initialDays = detailsResponse.data.daily.data.filter( (data, idx) => idx < 3)
 }
 
 fetchAllData()
