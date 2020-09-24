@@ -1,5 +1,10 @@
 import { convertDate } from "./utils";
 import axios from 'axios'
+import cloudy from '../img/cloudy.png'
+import rain from "../img/rain.png"
+import snow from "../img/snow.png"
+import sunny from "../img/sunny.png"
+
 
 const fetchAllData = async () => {
   const currDate = new Date()
@@ -33,7 +38,7 @@ const fetchAllData = async () => {
 
   const title = document.getElementById('title')
   const subTitle = document.getElementsByClassName('weekday')
-  const iconsImgs = document.getElementsByTagName('img')
+  const iconImg = document.getElementsByTagName('img')
   const weatherDescription = document.getElementsByClassName('weather-description')
   const weatherTemp = document.getElementsByClassName('weather-temp')
 
@@ -47,10 +52,22 @@ const fetchAllData = async () => {
       subTitle[0].innerText = 'Today'
     }
     if (idx === currDate.getDay()) {
-      subTitle[1].innerText = weekday;
+      subTitle[1].innerText = weekday
     }
     if (idx === currDate.getDay() + 1) {
       subTitle[2].innerText = weekday
+    }
+  })
+
+  initialDays.map( (day, idx) => {
+    if (day.icon === 'cloudy') {
+      iconImg[idx].src = cloudy
+    } else if (day.icon === 'rain') {
+      iconImg[idx].src = rain
+    } else if (day.icon === 'sunny') {
+      iconImg[idx].src = sunny
+    } else {
+      iconImg[idx].src = snow
     }
   })
 }
