@@ -30,6 +30,29 @@ const fetchAllData = async () => {
   const detailsResponse = await axios.get(`https://se-weather-api.herokuapp.com/api/v1/forecast?latitude=${lat}&longitude=${long}&date=${month}/${day}/${year}`)
   const initialDays = detailsResponse.data.daily.data.filter( (data, idx) => idx < 3)
 
+
+  const title = document.getElementById('title')
+  const subTitle = document.getElementsByClassName('weekday')
+  const iconsImgs = document.getElementsByTagName('img')
+  const weatherDescription = document.getElementsByClassName('weather-description')
+  const weatherTemp = document.getElementsByClassName('weather-temp')
+
+  title.innerText = `WEATHER FORECAST FOR ${city.toUpperCase()}`
+
+  const weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday','Friday', 'Saturday', 'Sunday']
+
+
+  weekdays.map( (weekday, idx) => {
+    if (idx === currDate.getDay() - 1) {
+      subTitle[0].innerText = 'Today'
+    }
+    if (idx === currDate.getDay()) {
+      subTitle[1].innerText = weekday;
+    }
+    if (idx === currDate.getDay() + 1) {
+      subTitle[2].innerText = weekday
+    }
+  })
 }
 
 fetchAllData()
