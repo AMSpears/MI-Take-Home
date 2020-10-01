@@ -57,15 +57,6 @@ const addData = (initialDays, city) => {
 const fetchAllData = async () => {
   let currDate = new Date()
   currDate = convertDate(currDate)
-  // const month =
-  //   currDate.getMonth() + 1 < 10
-  //     ? `0${currDate.getMonth() + 1}`
-  //     : currDate.getMonth() + 1;
-  // const day =
-  //   currDate.getDay() < 10
-  //   ? `0${currDate.getDay()}`
-  //   : currDate.getDay()
-  // const year = currDate.getFullYear()
   let city = ''
   let lat = 0
   let long = 0
